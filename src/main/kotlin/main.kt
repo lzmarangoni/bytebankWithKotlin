@@ -1,5 +1,22 @@
 fun main(){
     println("bem vindo ao bytebank")
+
+    var contaLuiz = Conta()
+    contaLuiz.titular = "Luiz"
+    contaLuiz.numeroDaConta = 1
+    contaLuiz.saldo = 1.0
+    println(contaLuiz.titular)
+    println(contaLuiz.numeroDaConta)
+    println(contaLuiz.saldo)
+}
+
+class Conta{
+    var titular = "padrão"
+    var numeroDaConta = 1234
+    var saldo = 0.0
+}
+
+fun testandoRepeticoes(){
     var i =0
     while (i < 5) {
         val titular: String = "Luiz $i"
@@ -15,9 +32,6 @@ fun main(){
 
     }
 }
-
-
-
 
 fun testandoCondicoes(saldo: Double){
     when {
