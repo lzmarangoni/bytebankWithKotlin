@@ -10,7 +10,17 @@ fun main(){
     println(contaLuiz.saldo)
 
     contaLuiz.deposita( 520.00)
-    contaLuiz.sacar(5000.00)
+    contaLuiz.sacar(50.00)
+
+    var contaLeticia = Conta()
+
+    if(contaLuiz.tranferencia(50.00, contaLeticia)){
+        println("concluido")
+    } else {
+        println("mal sucedida")
+    }
+
+    println(contaLeticia.saldo)
 }
 
 
@@ -31,6 +41,15 @@ class Conta{
         }else{
             println("você não possui saldo suficiente, faça um saque de até ${this.saldo}")
         }
+    }
+
+    fun tranferencia(valor: Double, destino: Conta): Boolean{
+        if (this.saldo >= valor){
+           this.saldo -= valor
+            destino.saldo += valor
+            return true
+        }
+        return false
     }
 }
 
