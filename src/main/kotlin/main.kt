@@ -8,12 +8,34 @@ fun main(){
     println(contaLuiz.titular)
     println(contaLuiz.numeroDaConta)
     println(contaLuiz.saldo)
+
+    deposita(contaLuiz, 520.00)
+}
+fun deposita(conta: Conta, valor: Double){
+    conta.saldo += valor
+    println("foi depositado o valor de ${valor} na conta ${conta.titular}, seu novo saldo é de ${conta.saldo}")
 }
 
 class Conta{
     var titular = "padrão"
     var numeroDaConta = 1234
     var saldo = 0.0
+}
+
+fun testaCopiaseReferencias(){
+    val numeroX = 10
+    var numeroY = numeroX
+    numeroY++
+    println(numeroY)
+
+    val contaJoao = Conta()
+    contaJoao.titular = "Luiz"
+
+    val contaMaria = contaJoao
+    contaMaria.titular ="João"
+
+    println(contaJoao.titular)
+    println(contaMaria.titular)
 }
 
 fun testandoRepeticoes(){
@@ -31,6 +53,8 @@ fun testandoRepeticoes(){
         i++
 
     }
+
+
 }
 
 fun testandoCondicoes(saldo: Double){
@@ -41,3 +65,4 @@ fun testandoCondicoes(saldo: Double){
     }
 
 }
+
