@@ -4,10 +4,10 @@ fun main(){
     var contaLuiz = Conta()
     contaLuiz.titular = "Luiz"
     contaLuiz.numeroDaConta = 1
-    contaLuiz.saldo = 1.0
+    contaLuiz.setSaldo(1.0)
     println(contaLuiz.titular)
     println(contaLuiz.numeroDaConta)
-    println(contaLuiz.saldo)
+    println(contaLuiz.getSaldo())
 
     contaLuiz.deposita( 520.00)
     contaLuiz.sacar(50.00)
@@ -20,14 +20,14 @@ fun main(){
         println("mal sucedida")
     }
 
-    println(contaLeticia.saldo)
+    println(contaLeticia.getSaldo())
 }
 
 
 class Conta{
     var titular = "padrão"
     var numeroDaConta = 1234
-    var saldo = 0.0
+    private var saldo = 0.0
 
     fun deposita(valor: Double){
         this.saldo += valor
@@ -51,6 +51,14 @@ class Conta{
         }
         return false
     }
+
+        fun getSaldo(): Double{
+            return saldo
+        }
+
+        fun setSaldo(valor: Double){
+            saldo = valor
+        }
 }
 
 fun testaCopiaseReferencias(){
