@@ -1,18 +1,15 @@
 fun main(){
     println("bem vindo ao bytebank")
 
-    var contaLuiz = Conta()
-    contaLuiz.titular = "Luiz"
-    contaLuiz.numeroDaConta = 1
-    contaLuiz.setSaldo(1.0)
-    println(contaLuiz.titular)
-    println(contaLuiz.numeroDaConta)
-    println(contaLuiz.getSaldo())
+    var contaLuiz = Conta("Luiz", 1001)
 
-    contaLuiz.deposita( 520.00)
+    contaLuiz.deposita(1.0)
+
+
+    contaLuiz.deposita( -1.00)
     contaLuiz.sacar(50.00)
 
-    var contaLeticia = Conta()
+    var contaLeticia = Conta("Leticia", 1002)
 
     if(contaLuiz.tranferencia(50.00, contaLeticia)){
         println("concluido")
@@ -20,19 +17,29 @@ fun main(){
         println("mal sucedida")
     }
 
-    println(contaLeticia.getSaldo())
+    println(contaLeticia.saldo)
 }
 
 
-class Conta{
-    var titular = "padrão"
-    var numeroDaConta = 1234
-    private var saldo = 0.0
+class Conta(var titular:String, var numeroDaConta: Int){
+ 
+    var saldo = 0.0
+        private set
 
-    fun deposita(valor: Double){
-        this.saldo += valor
-        println("foi depositado o valor de ${valor} na conta ${this.titular}, seu novo saldo é de ${this.saldo}")
-    }
+//    constructor(titular:String, numeroDaConta: Int){
+//        this.titular = titular
+//        this.numeroDaConta = numeroDaConta
+//    }
+
+        fun deposita(valor: Double){
+            if(valor > 0){
+                this.saldo += valor
+                println("foi depositado o valor de ${valor} para a conta do ${titular}, seu novo saldo é de ${saldo}")
+            }else{
+                println("Valor de deposito deve ser maior que 0, e valor informado foi ${valor}")
+            }
+
+        }
 
     fun sacar(valor: Double){
         if (this.saldo >= valor){
@@ -52,56 +59,49 @@ class Conta{
         return false
     }
 
-        fun getSaldo(): Double{
-            return saldo
-        }
-
-        fun setSaldo(valor: Double){
-            saldo = valor
-        }
 }
 
-fun testaCopiaseReferencias(){
-    val numeroX = 10
-    var numeroY = numeroX
-    numeroY++
-    println(numeroY)
+//fun testaCopiaseReferencias(){
+//    val numeroX = 10
+//    var numeroY = numeroX
+//    numeroY++
+//    println(numeroY)
+//
+//    val contaJoao = Conta()
+//    contaJoao.titular = "Luiz"
+//
+//    val contaMaria = contaJoao
+//    contaMaria.titular ="João"
+//
+//    println(contaJoao.titular)
+//    println(contaMaria.titular)
+//}
 
-    val contaJoao = Conta()
-    contaJoao.titular = "Luiz"
-
-    val contaMaria = contaJoao
-    contaMaria.titular ="João"
-
-    println(contaJoao.titular)
-    println(contaMaria.titular)
-}
-
-fun testandoRepeticoes(){
-    var i =0
-    while (i < 5) {
-        val titular: String = "Luiz $i"
-        val contaCorrente: Int = 1234 + i
-        var saldo: Double = 0.0 + i
-
-        println("Titular: $titular")
-        println("Conta Corrente: $contaCorrente")
-        println("Saldo: $saldo")
-        testandoCondicoes(saldo)
-        println()
-        i++
-
-    }
-
-
-}
-
-fun testandoCondicoes(saldo: Double){
-    when {
-        saldo > 0.0 -> println("saldo positivo")
-        saldo == 0.0 -> println("sem saldo")
-        else -> println("conta negativa")
-    }
-
-}
+//fun testandoRepeticoes(){
+//    var i =0
+//    while (i < 5) {
+//        val titular: String = "Luiz $i"
+//        val contaCorrente: Int = 1234 + i
+//        var saldo: Double = 0.0 + i
+//
+//        println("Titular: $titular")
+//        println("Conta Corrente: $contaCorrente")
+//        println("Saldo: $saldo")
+//        testandoCondicoes(saldo)
+//        println()
+//        i++
+//
+//    }
+//
+//
+//}
+//
+//fun testandoCondicoes(saldo: Double){
+//    when {
+//        saldo > 0.0 -> println("saldo positivo")
+//        saldo == 0.0 -> println("sem saldo")
+//        else -> println("conta negativa")
+//    }
+//
+//}
 
