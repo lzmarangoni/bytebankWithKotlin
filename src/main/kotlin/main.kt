@@ -1,35 +1,20 @@
 fun main(){
     println("bem vindo ao bytebank")
 
-    testaComportamentosConta()
-    var funcionario1 = Funcionario(
-        "Marangoni",
-        123,
-        1300.00
-    )
-    println("Funcionario: ${funcionario1.nome}")
-    println("Matricula: ${funcionario1.matricula}")
-    println("Salário: ${funcionario1.salario}")
-    println("O valor da sua bonificação é ${funcionario1.bonificacao()}")
+    val contaPoupanca = ContaPoupança(titular = "Luiz" , numeroDaConta = 1000)
+    val contaCorrente = ContaCorrente(titular = "Luiz" , numeroDaConta = 1001)
 
-    var gerente1 = Gerente(
-        "Leticia",
-        2,
-        3000.00,
-        1234)
+    contaPoupanca.deposita(valor = 1000.00)
+    contaCorrente.deposita(valor = 1000.00)
 
-    var diretor = Diretor(
-        "Roberto",
-        150,
-        20000.0,
-        1234,
-        200.0
-    )
-    println("Funcionario: ${diretor.nome}")
-    println("Matricula: ${diretor.matricula}")
-    println("Salário: ${diretor.salario}")
-    println("plr: ${diretor.plr}")
-    println("senha: ${diretor.autentica(1234)}")
+    println("saldo da conta poupança é de ${contaPoupanca.saldo}")
+    println("saldo da conta corrente é de ${contaCorrente.saldo}")
+
+    contaPoupanca.sacar(valor = 10.00)
+    contaCorrente.sacar(valor = 995.00)
+
+    println(contaPoupanca.saldo)
+    println(contaCorrente.saldo)
 }
 
 

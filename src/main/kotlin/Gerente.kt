@@ -5,9 +5,7 @@ class Gerente(
     val senha: Int
 ): Funcionario(nome=nome, matricula=matricula, salario=salario) {
 
-  //  fun bonificacao(): Double {
-  //      return salario * 0.2
-  //  }
+    override val bonificacao: Double get()  =  super.bonificacao + salario
 
     fun autentica(senha: Int): Boolean {
         return this.senha == senha

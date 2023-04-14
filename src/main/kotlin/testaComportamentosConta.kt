@@ -1,6 +1,6 @@
 fun testaComportamentosConta() {
     var contaLuiz = Conta("Luiz", 1001)
-    contaLuiz.deposita(60.0)
+    contaLuiz.deposita(60.00)
     var contaLeticia = Conta("Leticia", 1002)
 
 
