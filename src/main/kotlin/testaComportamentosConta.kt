@@ -1,7 +1,7 @@
 fun testaComportamentosConta() {
-    var contaLuiz = Conta("Luiz", 1001)
+    var contaLuiz = ContaCorrente("Luiz", 1001)
     contaLuiz.deposita(60.00)
-    var contaLeticia = Conta("Leticia", 1002)
+    var contaLeticia = ContaPoupança("Leticia", 1002)
 
 
     if (contaLuiz.tranferencia(50.00, contaLeticia)) {

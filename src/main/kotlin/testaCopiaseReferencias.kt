@@ -4,7 +4,7 @@ fun testaCopiaseReferencias(){
     numeroY++
     println(numeroY)
 
-    val contaJoao = Conta(titular = "Maria", numeroDaConta = 1587)
+    val contaJoao = ContaCorrente(titular = "Maria", numeroDaConta = 1587)
 
 
     val contaMaria = contaJoao
