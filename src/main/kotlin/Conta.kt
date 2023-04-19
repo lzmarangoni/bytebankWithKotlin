@@ -1,8 +1,9 @@
 abstract class Conta(
     var titular:String,
-    var numeroDaConta: Int){
+    var numeroDaConta: Int
+    ){
 
-    var saldo = 0.0
+    open var saldo = 0.0
         protected set
 
 
@@ -18,13 +19,13 @@ abstract class Conta(
 
     abstract fun sacar(valor: Double)
 
-    fun tranferencia(valor: Double, destino: Conta): Boolean{
-        if (this.saldo >= valor){
-           this.saldo -= valor
-            destino.saldo += valor
-            return true
-        }
-        return false
-    }
+//    fun transferencia(valor: Double, destino: ContaNivel2): Boolean{
+//        if (this.saldo >= valor){
+//            this.saldo -= valor
+//            destino.saldo += valor
+//            return true
+//        }
+//        return false
+//    }
 
 }
