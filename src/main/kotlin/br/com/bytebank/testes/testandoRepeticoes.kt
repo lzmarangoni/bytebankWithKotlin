@@ -1,3 +1,5 @@
+package br.com.bytebank.testes
+
 fun testandoRepeticoes(){
     var i =0
     while (i < 5) {
@@ -6,7 +8,7 @@ fun testandoRepeticoes(){
         var saldo: Double = 0.0 + i
 
         println("Titular: $titular")
-        println("Conta Corrente: $contaCorrente")
+        println("modelos.Conta Corrente: $contaCorrente")
         println("Saldo: $saldo")
         testandoCondicoes(saldo)
         println()

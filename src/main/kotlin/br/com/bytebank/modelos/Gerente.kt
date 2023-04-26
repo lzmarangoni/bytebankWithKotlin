@@ -1,3 +1,7 @@
+package br.com.bytebank.modelos
+
+import Autenticavel
+
 class Gerente(
      nome: String ,
      matricula: Int ,

@@ -1,5 +1,7 @@
+package br.com.bytebank.modelos
+
 abstract class Conta(
-    var titular:String,
+    var titular: Cliente,
     var numeroDaConta: Int
     ){
 
